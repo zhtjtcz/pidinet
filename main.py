@@ -350,9 +350,9 @@ def test(test_loader, model, epoch, running_file, args):
         for i in range(len(results)):
           results_all[i, 0, :, :] = results[i]
 
-        torchvision.utils.save_image(1-results_all, 
-                os.path.join(img_dir, "%s.jpg" % img_name))
-        sio.savemat(os.path.join(mat_dir, '%s.mat' % img_name), {'img': result})
+        # torchvision.utils.save_image(1-results_all, 
+        #         os.path.join(img_dir, "%s.jpg" % img_name))
+        # sio.savemat(os.path.join(mat_dir, '%s.mat' % img_name), {'img': result})
         result = Image.fromarray((result * 255).astype(np.uint8))
         result.save(os.path.join(img_dir, "%s.png" % img_name))
         runinfo = "Running test [%d/%d]" % (idx + 1, len(test_loader))
